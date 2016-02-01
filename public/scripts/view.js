@@ -1,6 +1,6 @@
 var TrailView = Backbone.View.extend({
   tagName: 'li', // defaults to div if not specified
-  className: 'trail', // optional, can also set multiple like 'animal dog'
+  className: 'trail', // optional
   events: {
     'click':         'alertTest',
     'click .edit':   'editTrail',
@@ -15,7 +15,7 @@ var TrailView = Backbone.View.extend({
 });
 
 // View for all trails (collection)
-var TrailsView = Backbone.View.extend({ // calling this AnimalsView to distinguish as the view for the collection
+var TrailsView = Backbone.View.extend({ // calling this TrailsView to distinguish as the view for the collection
   tagName: 'ul',
   initialize: function(){
     this.collection;
