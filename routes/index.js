@@ -38,7 +38,9 @@ router.get('/api/trails', function(req, res, next) {
       }
     }
   }).then(function (response) {
-    res.json(response.hits.hits);
+    res.json(response.hits.hits.map(function(trail) {
+      return trail._source;
+    }));
   }, function (err) {
     console.trace(err.message);
     res.status(400).end('No results');
@@ -69,7 +71,9 @@ router.get('/api/campsites', function(req, res, next) {
       }
     }
   }).then(function (response) {
-    res.json(response.hits.hits);
+    res.json(response.hits.hits.map(function(campsite) {
+      return campsite._source;
+    }));
   }, function (err) {
     console.trace(err.message);
     res.status(400).end('No results');
