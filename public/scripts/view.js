@@ -44,18 +44,16 @@ var CampsiteView = Backbone.View.extend({
   }
 });
 
-// View for all trails (collection)
+// View for all campsites (collection)
 var CampsitesView = Backbone.View.extend({ // calling this CampsitesView to distinguish as the view for the collection
   tagName: 'ul',
   initialize: function(){
     this.collection;
-    L.mapbox.accessToken = 'pk.eyJ1IjoidmZyYW1iYWNoIiwiYSI6ImNpanN4ZGs5eTBoY3B1b2x4c3BwZnczNmsifQ.bI3hNg0PQJ68O3_iA30b0A';
-    this.mapbox = L.mapbox.map('map-container', 'mapbox.streets');
   },
   render: function(){
     $("#city-images").hide();
-    $('#campsite-container').empty().show();
-    this.mapbox.setView([37.7833, -122.4167], 13);
+    $('#results').show();
+    $('#campsite-container').empty();
     this.collection.each(function(campsite){
       var campsiteView = new CampsiteView({model: campsite});
       $('#campsite-container').append(campsiteView.el);
@@ -73,6 +71,7 @@ var ContainerView = Backbone.View.extend({
     this.render(); // render is an optional function that defines the logic for rendering a template
   },
   render: function() {
+    
     this.$el.html();
   },
   handleRouteChange: function (route, params) {
