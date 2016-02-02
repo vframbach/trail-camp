@@ -14,11 +14,6 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-/* GET results page. */
-router.get('/results', function(req, res, next) {
-  res.render('results', { title: 'Express' });
-});
-
 router.get('/api/trails', function(req, res, next) {
 	console.log(req.query);
 	client.search({

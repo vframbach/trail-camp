@@ -49,10 +49,13 @@ var CampsitesView = Backbone.View.extend({ // calling this CampsitesView to dist
   tagName: 'ul',
   initialize: function(){
     this.collection;
+    L.mapbox.accessToken = 'pk.eyJ1IjoidmZyYW1iYWNoIiwiYSI6ImNpanN4ZGs5eTBoY3B1b2x4c3BwZnczNmsifQ.bI3hNg0PQJ68O3_iA30b0A';
+    this.mapbox = L.mapbox.map('map-container', 'mapbox.streets');
   },
   render: function(){
     $("#city-images").hide();
     $('#campsite-container').empty().show();
+    this.mapbox.setView([37.7833, -122.4167], 13);
     this.collection.each(function(campsite){
       var campsiteView = new CampsiteView({model: campsite});
       $('#campsite-container').append(campsiteView.el);

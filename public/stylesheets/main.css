@@ -31,3 +31,8 @@ h3.subtitle {
 	color: white;
 	padding-top: 200px;
 }
+
+#map-container {
+	width: 450px;
+    height: 450px;
+}
