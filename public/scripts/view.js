@@ -21,9 +21,10 @@ var TrailsView = Backbone.View.extend({ // calling this TrailsView to distinguis
     this.collection;
   },
   render: function(){
+    $('#trail-container').empty();
     this.collection.each(function(trail){
       var trailView = new TrailView({model: trail});
-      $(document.body).append(trailView.el);
+      $('#trail-container').append(trailView.el);
     });
   }
 });

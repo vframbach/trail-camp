@@ -41,6 +41,13 @@ $(function(){
         var campsitesView = new CampsitesView({collection: campsiteCollection});
         campsitesView.render();
       });
+      $.get('/api/trails', cityLatLon, function(trails) {
+        var trailCollection = new TrailCollection(trails);
+
+        // When the GET returns, then do:
+        var trailsView = new TrailsView({collection: trailCollection});
+        trailsView.render();
+      });
       console.log('city:', params);
     },
 
