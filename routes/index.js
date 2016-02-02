@@ -32,7 +32,7 @@ router.get('/api/trails', function(req, res, next) {
           },
           "filter" : {
             "geo_distance" : {
-              "distance" : "20mi",
+              "distance" : "40mi",
               "trail.location" : {
                 "lat" : req.query.lat,
                 "lon" : req.query.lon
@@ -65,7 +65,7 @@ router.get('/api/campsites', function(req, res, next) {
           },
           "filter" : {
             "geo_distance" : {
-              "distance" : "20mi",
+              "distance" : "40mi",
               "campsite.location" : {
                 "lat" : req.query.lat,
                 "lon" : req.query.lon

@@ -22,33 +22,52 @@
     <script type="text/javascript" src="/scripts/view.js"></script>
     <script type="text/javascript" src="/scripts/collection.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
-    <div class="jumbotron">
-        <h1>Outside Bound</h1>
-    </div>
-    <h3 class="subtitle"> Pairing campsites and trailheads together</h3>
-    <div class="row">
-    
-        <div class="row">
-            <div class="col-md-3">
-                <img src="https://pixabay.com/static/uploads/photo/2015/10/09/14/51/hollywood-sign-979399_960_720.jpg" class="img-responsive img-rounded center-block round-image">
-                <div class="homepage-text"><p><a href="/results">Los Angeles</a></p> 
-                </div>
-            </div>
-            <div class="col-md-3">
-                <img src="https://pixabay.com/static/uploads/photo/2015/10/22/08/51/golden-bridge-1000909_960_720.jpg" class="img-responsive img-rounded center-block">
-                <div class="homepage-text"><p><a href="/results">San Francisco</a></p> 
-                </div>
-            </div>
-            <div class="col-md-3">
-                    <img src="http://david.sickmiller.com/pictures/dynimages/Columbia_River_Gorge_-_View_from_Portland_Womens_Forum_4.jpg" class="img-responsive img-rounded center-block">
-                    <div class="homepage-text"><p><a href="/results">Portland</a></p> 
-                    </div>
-            </div>
-            <div class="col-md-3">
-                <img src="https://c1.staticflickr.com/9/8137/8714655860_4fa16bca7b_b.jpg" class="seattle img-responsive img-rounded center-block">
-                <div class="homepage-text"><p><a href="/">Seattle</a></p> 
-                </div>
-            </div>
+    <div id="app-container"></div>
+
+
+    <div id="city-images">
+        <div class="jumbotron">
+            <h1 class="page-title">Outside Bound</h1>
         </div>
+        <h3 class="subtitle"> Pairing campsites and trailheads together</h3>
+        <div class="container">
+          <div class="row cities">
+              <div class="col-md-3">
+                  <a href="#city/losangeles"><img src="https://pixabay.com/static/uploads/photo/2015/10/09/14/51/hollywood-sign-979399_960_720.jpg" class="img-responsive img-rounded center-block round-image border=0">
+                  <div class="homepage-text"><p>Los Angeles</p></a>
+                  </div>
+              </div>
+              <div class="col-md-3">
+                  <a href="#city/sanfrancisco"><img src="https://pixabay.com/static/uploads/photo/2015/10/22/08/51/golden-bridge-1000909_960_720.jpg" class="img-responsive img-rounded center-block border=0">
+                  <div class="homepage-text"><p>San Francisco</p></a>
+                  </div>
+              </div>
+              <div class="col-md-3">
+                      <a href="#city/portland"><img src="http://david.sickmiller.com/pictures/dynimages/Columbia_River_Gorge_-_View_from_Portland_Womens_Forum_4.jpg" class="img-responsive img-rounded center-block border=0">
+                      <div class="homepage-text"><p>Portland</p></a> 
+                      </div>
+              </div>
+              <div class="col-md-3">
+                  <a href="#city/seattle"><img src="https://c1.staticflickr.com/9/8137/8714655860_4fa16bca7b_b.jpg" class="img-responsive img-rounded center-block border=0">
+                  <div class="homepage-text"><p>Seattle</p></a>
+                  </div>
+              </div>
+          </div>
+        </div>
+    </div>
+
+
+    <div id="results">
+
+      <div class="row">
+          <div class="col-md-6">
+              <div id="campsite-container">
+              </div>
+          </div>
+      </div>
+    </div>
+
+
+
   </body>
 </html>

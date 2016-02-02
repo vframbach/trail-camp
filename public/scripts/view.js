@@ -40,7 +40,7 @@ var CampsiteView = Backbone.View.extend({
     this.render(); // render is an optional function that defines the logic for rendering a template
   },
   render: function() {
-    this.$el.html(this.model.get('name') + ' is at ' + this.model.get('location' + ': '+ '{' + 'lat','lon }'));
+    this.$el.html(this.model.get('name') + ' is at ' + this.model.get('location').lat + ', ' + this.model.get('location').lon);
   }
 });
 
@@ -51,9 +51,29 @@ var CampsitesView = Backbone.View.extend({ // calling this CampsitesView to dist
     this.collection;
   },
   render: function(){
+    $("#city-images").hide();
+    $('#campsite-container').empty().show();
     this.collection.each(function(campsite){
       var campsiteView = new CampsiteView({model: campsite});
-      $(document.body).append(campsiteView.el);
+      $('#campsite-container').append(campsiteView.el);
     });
   }
 });
+
+var ContainerView = Backbone.View.extend({
+  tagName: 'div', // defaults to div if not specified
+  className: 'container', // optional
+  events: {
+    'route':         'handleRouteChange'
+  },
+  initialize: function() {
+    this.render(); // render is an optional function that defines the logic for rendering a template
+  },
+  render: function() {
+    this.$el.html();
+  },
+  handleRouteChange: function (route, params) {
+    console.log("handling trail route", route, params);
+  }
+});
+
