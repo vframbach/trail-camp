@@ -10,7 +10,7 @@ var TrailView = Backbone.View.extend({
     this.render(); // render is an optional function that defines the logic for rendering a template
   },
   render: function() {
-    this.$el.html(this.model.get('name') + ' is at ' + this.model.get('location_name') + ' and the length is ' + this.model.get('length') + ' miles.');
+    this.$el.html(this.model.get('name') + ' is at ' + this.model.get('location_name') + ' and the length is ' + this.model.get('length').toFixed(1) + ' miles.');
   }
 });
 
@@ -41,7 +41,7 @@ var CampsiteView = Backbone.View.extend({
     this.render(); // render is an optional function that defines the logic for rendering a template
   },
   render: function() {
-    this.$el.html(this.model.get('name') + ' is at ' + this.model.get('location').lat + ', ' + this.model.get('location').lon);
+    this.$el.html(this.model.get('name') + ' is at ' + this.model.get('location').lat.toFixed(4) + ', ' + this.model.get('location').lon.toFixed(4));
   }
 });
 
