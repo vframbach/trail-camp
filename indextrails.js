@@ -4,7 +4,6 @@ var everytrail = require('./lib/everytrail');
 
 var client = new elasticsearch.Client({
     host: process.env.ELASTICSEARCH_URL
-
 });
 
 var lookup = {
@@ -27,9 +26,9 @@ var lookup = {
 };
 
 function indexTrail(everyTrailData) {
-    console.log('Everytrail');
-    console.log(everyTrailData.length, 'things found');
-    console.log('Here is the first thing:', everyTrailData[0]);
+    console.log('(indextrail)');
+    console.log('(indextrail)', everyTrailData.length, 'things found');
+    console.log('(indextrail) Here is the first thing:', everyTrailData[0]);
 
     var bulkActions = [];
       
@@ -48,9 +47,9 @@ function indexTrail(everyTrailData) {
     });
 }
 
-
-for (var cityname in lookup) {
-    var city = lookup[cityname];
-    console.log(cityname);
-    everytrail(city.lat, city.lon, indexTrail);
-}
+var cities = Object.keys(lookup);
+cities.forEach(function (cityname) {
+  var city = lookup[cityname];
+  console.log(cityname);
+  everytrail(city.lat, city.lon, indexTrail);
+});

@@ -31,9 +31,9 @@ $(function(){
         seattle: { lat: 47.6097, lon: -122.3331 }
       };
       var cityLatLon = lookup[params];
-      if (this.mapbox) this.mapbox.remove();
+      if (app.mapbox) app.mapbox.remove();
       L.mapbox.accessToken = 'pk.eyJ1IjoidmZyYW1iYWNoIiwiYSI6ImNpanN4ZGs5eTBoY3B1b2x4c3BwZnczNmsifQ.bI3hNg0PQJ68O3_iA30b0A';
-      this.mapbox = L.mapbox.map('map-container', 'mapbox.streets').setView([cityLatLon.lat, cityLatLon.lon], 10);
+      app.mapbox = L.mapbox.map('map-container', 'mapbox.streets').setView([cityLatLon.lat, cityLatLon.lon], 8);
       $.get('/api/campsites', cityLatLon, function(campsites) {
         var campsiteCollection = new CampsiteCollection(campsites);
 

@@ -41,6 +41,7 @@ var CampsiteView = Backbone.View.extend({
     this.render(); // render is an optional function that defines the logic for rendering a template
   },
   render: function() {
+    L.marker([this.model.get('location').lat, this.model.get('location').lon]).addTo(app.mapbox);
     this.$el.html(this.model.get('name') + ' is at ' + this.model.get('location').lat.toFixed(4) + ', ' + this.model.get('location').lon.toFixed(4));
   }
 });
@@ -72,7 +73,6 @@ var ContainerView = Backbone.View.extend({
     this.render(); // render is an optional function that defines the logic for rendering a template
   },
   render: function() {
-    
     this.$el.html();
   },
   handleRouteChange: function (route, params) {
