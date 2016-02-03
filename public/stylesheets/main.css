@@ -37,3 +37,10 @@ h3.subtitle {
     height: 450px;
 }
 
+.scroll {
+	height: 520px;
+	width: 575px;
+	overflow: auto;
+	border: 1px;
+	padding: 8px;
+}

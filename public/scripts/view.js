@@ -1,13 +1,12 @@
 var CampsiteView = Backbone.View.extend({
   tagName: 'ul', // defaults to div if not specified
-  className: 'campsite', // optional
-
+  className: 'campsite', 
   events: {
     'click .trail-button': 'trailButtonClick'
   },
   initialize: function() {
     this.template = _.template($('#campsite-template').html());
-    this.render(); // render is an optional function that defines the logic for rendering a template
+    this.render(); 
   },
   render: function() {
     L.marker([this.model.get('location').lat, this.model.get('location').lon]).addTo(app.mapbox);
@@ -15,10 +14,10 @@ var CampsiteView = Backbone.View.extend({
   },
   trailButtonClick:function(e) {
     console.log(this.model.toJSON());
-    // clear map
-    // show markers
+
     this.model.get('topTrails').forEach(function(trail) {
       L.marker([trail.location.lat, trail.location.lon]).addTo(app.mapbox);
+      this.$el.html(this.template(this.model.toJSON()));
     });
   }
 });
@@ -29,6 +28,8 @@ var CampsitesView = Backbone.View.extend({ // calling this CampsitesView to dist
   initialize: function(){
     this.collection;
   },
+
+  // hiding other views from page
   render: function(){
     $("#city-images").hide();
     $("#about-container").hide();

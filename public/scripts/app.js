@@ -35,12 +35,10 @@ $(function(){
       var cityLatLon = lookup[params];
       if (app.mapbox) app.mapbox.remove();
       L.mapbox.accessToken = 'pk.eyJ1IjoidmZyYW1iYWNoIiwiYSI6ImNpanN4ZGs5eTBoY3B1b2x4c3BwZnczNmsifQ.bI3hNg0PQJ68O3_iA30b0A';
-      app.mapbox = L.mapbox.map('map-container', 'mapbox.streets').setView([cityLatLon.lat, cityLatLon.lon], 8);
-
-      // var trailLatLon = cityLatLon[params];
-      // if (app.mapbox) app.mapbox.remove();
-      // L.mapbox.accessToken = 'pk.eyJ1IjoidmZyYW1iYWNoIiwiYSI6ImNpanN4ZGs5eTBoY3B1b2x4c3BwZnczNmsifQ.bI3hNg0PQJ68O3_iA30b0A';
-      // app.mapbox = L.mapbox.map('map-container', 'mapbox.streets').setView([trailLatLon.lat, trailLatLon.lon], 8);
+      app.mapbox = L.mapbox.map('map-container', 'mapbox.streets', {
+        minZoom: 5,
+        maxZoom: 12,
+      }).setView([cityLatLon.lat, cityLatLon.lon], 8);
 
       $.get('/api/campsites', cityLatLon, function(campsites) {
         var campsiteCollection = new CampsiteCollection(campsites);
@@ -51,15 +49,18 @@ $(function(){
       });
     },
 
+    // hiding and showing various views from pages
+
     home: function(params) {
       $('#nav-container').hide();
       $('#results').hide();
+      $('#about-container').hide();
       console.log('home');
     },
 
     about: function(params) {
       $('#nav-container').show();
-      $("#about-container").show();
+      $('#about-container').show();
       $('#results').hide();
       console.log('about');
     }
