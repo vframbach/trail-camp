@@ -1,10 +1,9 @@
 var CampsiteView = Backbone.View.extend({
   tagName: 'ul', // defaults to div if not specified
   className: 'campsite', // optional
+
   events: {
-    'click':         'alertCampsite',
-    'click .edit':   'editCampsite',
-    'click .delete': 'deleteCampsite'
+    'click .trail-button': 'trailButtonClick'
   },
   initialize: function() {
     this.template = _.template($('#campsite-template').html());
@@ -13,6 +12,14 @@ var CampsiteView = Backbone.View.extend({
   render: function() {
     L.marker([this.model.get('location').lat, this.model.get('location').lon]).addTo(app.mapbox);
     this.$el.html(this.template(this.model.toJSON()));
+  },
+  trailButtonClick:function(e) {
+    console.log(this.model.toJSON());
+    // clear map
+    // show markers
+    this.model.get('topTrails').forEach(function(trail) {
+      L.marker([trail.location.lat, trail.location.lon]).addTo(app.mapbox);
+    });
   }
 });
 
@@ -24,12 +31,15 @@ var CampsitesView = Backbone.View.extend({ // calling this CampsitesView to dist
   },
   render: function(){
     $("#city-images").hide();
-    $('#results').show();
+    $("#about-container").hide();
     $('#campsite-container').empty();
     this.collection.each(function(campsite){
       var campsiteView = new CampsiteView({model: campsite});
       $('#campsite-container').append(campsiteView.el);
     });
+    $('#results').show();
+    // fixes issue of map not loading on first page load
+    app.mapbox.invalidateSize();
   }
 });
 

@@ -19,10 +19,12 @@ $(function(){
 
     routes: {
       "city/:city": "city",
-      "home": "home"
+      "about": "about",
+      ".*": "home"
     },
 
     city: function(params) {
+      $('#nav-container').show();
         // GET /api/campsites{lat, lon}
       var lookup = {
         losangeles: { lat: 34.0500, lon:-118.2500 },
@@ -34,6 +36,12 @@ $(function(){
       if (app.mapbox) app.mapbox.remove();
       L.mapbox.accessToken = 'pk.eyJ1IjoidmZyYW1iYWNoIiwiYSI6ImNpanN4ZGs5eTBoY3B1b2x4c3BwZnczNmsifQ.bI3hNg0PQJ68O3_iA30b0A';
       app.mapbox = L.mapbox.map('map-container', 'mapbox.streets').setView([cityLatLon.lat, cityLatLon.lon], 8);
+
+      // var trailLatLon = cityLatLon[params];
+      // if (app.mapbox) app.mapbox.remove();
+      // L.mapbox.accessToken = 'pk.eyJ1IjoidmZyYW1iYWNoIiwiYSI6ImNpanN4ZGs5eTBoY3B1b2x4c3BwZnczNmsifQ.bI3hNg0PQJ68O3_iA30b0A';
+      // app.mapbox = L.mapbox.map('map-container', 'mapbox.streets').setView([trailLatLon.lat, trailLatLon.lon], 8);
+
       $.get('/api/campsites', cityLatLon, function(campsites) {
         var campsiteCollection = new CampsiteCollection(campsites);
 
@@ -44,7 +52,16 @@ $(function(){
     },
 
     home: function(params) {
+      $('#nav-container').hide();
+      $('#results').hide();
       console.log('home');
+    },
+
+    about: function(params) {
+      $('#nav-container').show();
+      $("#about-container").show();
+      $('#results').hide();
+      console.log('about');
     }
 
   });

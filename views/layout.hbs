@@ -61,6 +61,7 @@
     <script type="text/template" id="campsite-template">
       <div>
         <p><strong><%= name %></strong></p><a href="http://www.reserveamerica.com/campsiteSearch.do?contractCode=<%= contract_id %>&parkId=<%= facility_id %>" target="_blank">More info</a>
+        <button class="trail-button">See trails</button>
         <p>(<%= location.lat.toFixed(4) %>, <%= location.lon.toFixed(4) %>)</p>
         <ul>
           <% _.each(topTrails, function (trail) { %>
@@ -71,8 +72,7 @@
       </div>  
     </script>
 
-
-    <div id="results">
+    <div id="nav-container">
       <nav class="navbar navbar-default">
         <div class="container-fluid">
           <!-- Brand and toggle get grouped for better mobile display -->
@@ -84,6 +84,9 @@
               <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="/">Outside Bound</a>
+            <ul class="nav navbar-nav navbar-left">
+              <li><a href="#about">About</a></li>
+            </ul>
           </div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->
@@ -97,6 +100,9 @@
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
       </nav>
+    </div>
+    <div id="results">
+      
       <div class="row">
         <div class="col-md-6">
           <div id="campsite-container">
@@ -109,6 +115,21 @@
           </div>
         </div>
       </div>
+    </div>
+
+
+    <div id="about-container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <h2>About Outside Bounds</h2>
+          <p>This website pairs campgrounds with nearby trailheads to reduce the amount of planning needed for a weekend camping adventure. The list of campgrounds comes from ReserveAmerica, and trailhead information is from EveryTrail.</p>
+
+          <h2>About the developer</h2>
+          <p> I've been learning web development for the past few months at General Assembly, and decided to build a site about two of my passions, camping and hiking. I'm an outdoors enthusiast and wanted to make it easier for others to plan a weekend getaway without having several browser tabs open. </p>
+        </div>
+      </div>
+    </div>
+      
 
 
 

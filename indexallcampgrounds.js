@@ -7,14 +7,14 @@ var client = new elasticsearch.Client({
 });
 
 var lookup = {
-  losangeles: {
-    lat: 34.0500,
-    lon: -118.2500
-  },
-  sanfrancisco: {
-    lat: 37.7833,
-    lon: -122.4167
-  },
+  // losangeles: {
+  //   lat: 34.0500,
+  //   lon: -118.2500
+  // },
+  // sanfrancisco: {
+  //   lat: 37.7833,
+  //   lon: -122.4167
+  // },
   portland: {
     lat: 45.5200,
     lon: -122.6819
