@@ -58,6 +58,19 @@
         </div>
     </div>
 
+    <script type="text/template" id="campsite-template">
+      <div>
+        <p><strong><%= name %></strong></p>
+        <p>(<%= location.lat.toFixed(4) %>, <%= location.lon.toFixed(4) %>)</p>
+        <ul>
+          <% _.each(topTrails, function (trail) { %>
+            <li><em><%= trail.name %></em>
+            <a href="http://www.everytrail.com/view_trip.php?trip_id=<%= trail.trip_id %>" target="_blank">More info</a></li>
+          <% }) %>
+        </ul>
+      </div>  
+    </script>
+
 
     <div id="results">
       <nav class="navbar navbar-default">

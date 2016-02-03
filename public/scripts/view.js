@@ -1,34 +1,3 @@
-var TrailView = Backbone.View.extend({
-  tagName: 'li', // defaults to div if not specified
-  className: 'trail', // optional
-  events: {
-    'click':         'alertTest',
-    'click .edit':   'editTrail',
-    'click .delete': 'deleteTrail'
-  },
-  initialize: function() {
-    this.render(); // render is an optional function that defines the logic for rendering a template
-  },
-  render: function() {
-    this.$el.html(this.model.get('name') + ' is at ' + this.model.get('location_name') + ' and the length is ' + this.model.get('length').toFixed(1) + ' miles.');
-  }
-});
-
-// View for all trails (collection)
-var TrailsView = Backbone.View.extend({ // calling this TrailsView to distinguish as the view for the collection
-  tagName: 'li',
-  initialize: function(){
-    this.collection;
-  },
-  render: function(){
-    $('#trail-container').empty();
-    this.collection.each(function(trail){
-      var trailView = new TrailView({model: trail});
-      $('#trail-container').append(trailView.el);
-    });
-  }
-});
-
 var CampsiteView = Backbone.View.extend({
   tagName: 'ul', // defaults to div if not specified
   className: 'campsite', // optional
@@ -38,11 +7,12 @@ var CampsiteView = Backbone.View.extend({
     'click .delete': 'deleteCampsite'
   },
   initialize: function() {
+    this.template = _.template($('#campsite-template').html());
     this.render(); // render is an optional function that defines the logic for rendering a template
   },
   render: function() {
     L.marker([this.model.get('location').lat, this.model.get('location').lon]).addTo(app.mapbox);
-    this.$el.html(this.model.get('name') + ' is at ' + this.model.get('location').lat.toFixed(4) + ', ' + this.model.get('location').lon.toFixed(4));
+    this.$el.html(this.template(this.model.toJSON()));
   }
 });
 
