@@ -39,6 +39,10 @@ a.city-font {
   min-height: 195px;
 }
 
+a.attribution {
+	font-size: 16px;
+}
+
 .jumbotron {
 	min-height: 375px;
 	background-size: cover;
