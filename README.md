@@ -36,6 +36,68 @@ Outside Bound matches campgrounds with nearby hiking trails. Users can plan a we
 * `npm install`
 * Obtain access key and secret key for ReserveAmerica and EveryTrail
 * Obtain write access to an Elasticsearch endpoint
+* Create Elasticsearch trail mapping
+
+```
+{
+	"mappings": {
+    	"trail": {
+        	"properties": {
+            	"name": {
+                	"type": "string",
+                    "fields": {
+                    	"simple": {
+                        	"type": "string",
+                    		"anaylzer": "simple"
+                        }
+                     }
+                },
+            	"location": {
+                	"type": "geo_point"
+                },
+                "length": {
+                	"type": "double"
+                },
+            	"location_name": {
+                	"type": "string",
+                    "fields": {
+                    	"simple": {
+                        	"type": "string",
+                    		"anaylzer": "simple"
+                        }
+                     }   
+                 }
+             }
+         }
+    }
+}
+                    
+```
+* Create Elasticsearch campsite mapping
+
+```
+{
+	"mappings": {
+    	"campsite": {
+        	"properties": {
+            	"name": {
+                	"type": "string",
+                    "fields": {
+                    	"simple": {
+                        	"type": "string",
+                    		"anaylzer": "simple"
+                        }
+                     }
+                },
+            	"location": {
+                	"type": "geo_point"
+                }
+             }
+         }
+    }
+}
+    
+```
 * Configure `.env` file:
 
 ``` 
