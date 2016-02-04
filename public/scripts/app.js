@@ -39,6 +39,8 @@ $(function(){
         minZoom: 5,
         maxZoom: 13,
       }).setView([cityData.lat, cityData.lon], 8);
+      app.mapbox.touchZoom.disable();
+      app.mapbox.scrollWheelZoom.disable();
 
       $.get('/api/campsites', cityData, function(campsites) {
         var campsiteCollection = new CampsiteCollection(campsites);
@@ -58,6 +60,7 @@ $(function(){
       $('#nav-container').hide();
       $('#results').hide();
       $('#about-container').hide();
+      $('#city-images').show();
       console.log('home');
     },
 
@@ -65,6 +68,7 @@ $(function(){
       $('#nav-container').show();
       $('#about-container').show();
       $('#results').hide();
+      $('#city-images').hide();
       console.log('about');
     }
 

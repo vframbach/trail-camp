@@ -44,7 +44,7 @@ var CampsiteView = Backbone.View.extend({
         },
         "properties": {
           "title": trail.name,
-          "description": trailLink,
+          "description": trail.length.toFixed(1) + ' miles - ' + trailLink, 
           "marker-color": "#e81049",
           "marker-symbol": "pitch"
         }

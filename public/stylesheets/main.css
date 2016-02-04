@@ -18,20 +18,23 @@ h3.subtitle {
 
 .image .homepage-text {
 	position:absolute;
-    top:0px;
+    bottom:0px;
     left:10px;
     width:300px;
     font-size: 30px;
 }
 
 a.city-font {
-	color: #23527c; 
+	color: #d66; 
+	font-weight: bold;
+	letter-spacing: 2px;
 }
 
 a.city-font:hover,
 a.city-font:active,
 a.city-font:visited {
 	text-decoration: none;
+	color: #f66;
 }
 
 .h1 {
@@ -49,13 +52,15 @@ a.attribution {
 .jumbotron {
 	min-height: 375px;
 	background-size: cover;
-	background-position: center 18%;
+	background-position: center;
 	background-image: url(https://images.unsplash.com/photo-1414016642750-7fdd78dc33d9?crop=entropy&dpr=2&fit=crop&fm=jpg&h=725&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1250);
 }
 
 .jumbotron h1.page-title {
-	color: white;
+	color: #d66;
 	padding-top: 200px;
+	font-size: 80px;
+	text-shadow: 2px 2px #ddd;
 }
 
 h2#cityName {
@@ -65,6 +70,11 @@ h2#cityName {
 #map-container {
 	width: 450px;
     height: 450px;
+}
+
+.map-container-padding {
+	padding-left: 25px;
+	padding-right: 25px;
 }
 
 .scroll {

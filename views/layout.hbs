@@ -17,7 +17,7 @@
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src='https://api.mapbox.com/mapbox.js/v2.2.4/mapbox.js'></script>
     <link href='https://api.mapbox.com/mapbox.js/v2.2.4/mapbox.css' rel='stylesheet' />
-    <title>{{title}}</title>
+    <title>Outside Bound</title>
   </head>
   <body>
     <script type="text/javascript" src="/scripts/model.js"></script>
@@ -73,7 +73,7 @@
         <a href="http://www.reserveamerica.com/campsiteSearch.do?contractCode=<%= contract_id %>&parkId=<%= facility_id %>" target="_blank"> More info</a></p>
         <ul>
           <% _.each(topTrails, function (trail) { %>
-            <li><em><%= trail.name %></em>
+            <li><em><%= trail.length.toFixed(1) %> miles - <%= trail.name %></em>
             <a href="http://www.everytrail.com/view_trip.php?trip_id=<%= trail.trip_id %>" target="_blank">More info</a></li>
           <% }) %>
         </ul>
@@ -121,33 +121,36 @@
           </div>
         </div>
         <div class="col-md-6">
-          <div id="map-container">
+          <div class="map-container-padding">
+            <div id="map-container">
+            </div>
           </div>
         </div>
       </div>
     </div>
 
 
-    <div id="about-container">
-      <div class="row">
-        <div class="col-md-10 col-md-offset-1">
+    <div id="about-container" class="container">
+      <div class="row">   
+         <div class="col-md-6 about-page">
           <h2>About Outside Bounds</h2>
           <p>Outside Bounds pairs campgrounds with nearby trailheads to reduce the amount of planning needed for a weekend camping adventure. The list of campgrounds comes from ReserveAmerica, and trailhead information is from EveryTrail. Plans for future expansion of this website include adding more cities, and providing a search box to search by location.
           </p>
 
           <h2>About the Developer</h2>
+          <h4>Victoria Frambach <a href="https://github.com/vframbach" target="_blank">Github</a></h4>
           <p> I've been learning web development for the past few months at General Assembly, and decided to build a site about two of my passions, camping and hiking. I'm an outdoors enthusiast and wanted to make it easier for others to plan a weekend getaway without having several browser tabs open. </p>
+
           <h2>Attribution</h2>
           <p><a class="attribution" href="http://david.sickmiller.com/pictures/dynslideshow/August%202005%20trip%20to%20Seattle%20and%20Portland/Columbia_River_Gorge_-_View_from_Portland_Womens_Forum_4" target="_blank">Portland photo</a></p>
           <p><a class="attribution" href="https://www.flickr.com/photos/davidjlee/8714655860" target="_blank">Seattle photo</a> </p>
           <p><a class="attribution" href="http://trailapi.com" target="_blank">TrailAPI- Copyright 2012 TrailAPI</a> </p>
- 
+          
+        </div>
+        <div class="col-md-6">
+            <img class="img-responsive" src="/images/picture.jpg">
         </div>
       </div>
     </div>
-      
-
-
-
   </body>
 </html>
