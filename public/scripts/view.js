@@ -10,28 +10,38 @@ var CampsiteView = Backbone.View.extend({
   },
 
   render: function() {
-    L.marker([this.model.get('location').lat, this.model.get('location').lon]).addTo(app.mapbox);
+    L.mapbox.featureLayer().setGeoJSON([{
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [this.model.get('location').lon, this.model.get('location').lat]
+      },
+      "properties": {
+        "title": this.model.get('name'),
+        "marker-symbol": "campsite"
+      }
+    }]).addTo(app.mapbox);
     this.$el.html(this.template(this.model.toJSON()));
   },
   // adds trail markers to map
   trailButtonClick:function(e) {
     console.log(this.model.toJSON());
+    var self = this;
 
     this.model.get('topTrails').forEach(function(trail) {
-      L.marker([trail.location.lat, trail.location.lon]).addTo(app.mapbox);
-      this.$el.html(this.template(this.model.toJSON()));
+      L.mapbox.featureLayer().setGeoJSON([{
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [trail.location.lon, trail.location.lat]
+        },
+        "properties": {
+          "title": trail.name,
+          "marker-color": "#e81049",
+          "marker-symbol": "pitch"
+        }
+      }]).addTo(app.mapbox);
 
-      var featureLayer = L.mapbox.featureLayer()
-        .on('ready', function(layer) {
-          this.eachLayer(function(marker) {
-            // See the following for styling hints:
-            // https://help.github.com/articles/mapping-geojson-files-on-github#styling-features
-            marker.setIcon(L.mapbox.marker.icon({
-                'marker-color': '#CC0000'
-            }));
-        });
-    })
-    .addTo(map);
     });
   }
 });
