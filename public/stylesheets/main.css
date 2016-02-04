@@ -12,6 +12,25 @@ h3.subtitle {
 	text-align: center;
 }
 
+.image {
+	position: relative;
+}
+
+.image .homepage-text {
+	position:absolute;
+    top:0px;
+    left:10px;
+    width:300px;
+    font-size: 30px;
+}
+
+a.city-font {
+	color: #23527c; 
+	a:hover {
+		color: none;
+}
+}
+
 .h1 {
 	margin-top: 0px;
     margin-bottom: 0px;
@@ -38,9 +57,13 @@ h3.subtitle {
 }
 
 .scroll {
-	height: 520px;
+	height: 530px;
 	width: 575px;
 	overflow: auto;
 	border: 1px;
 	padding: 8px;
+}
+
+.each-campsite {
+	padding-bottom: 20px;
 }

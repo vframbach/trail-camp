@@ -34,35 +34,43 @@
         <h3 class="subtitle"> Find your weekend adventure near one of these cities</h3>
         <div class="container">
           <div class="row cities">
-              <div class="col-md-3">
-                  <a href="#city/losangeles"><img src="https://pixabay.com/static/uploads/photo/2015/10/09/14/51/hollywood-sign-979399_960_720.jpg" class="img-responsive img-rounded center-block round-image border=0">
-                  <div class="homepage-text"><p>Los Angeles</p></a>
-                  </div>
-              </div>
-              <div class="col-md-3">
-                  <a href="#city/sanfrancisco"><img src="https://pixabay.com/static/uploads/photo/2015/10/22/08/51/golden-bridge-1000909_960_720.jpg" class="img-responsive img-rounded center-block border=0">
-                  <div class="homepage-text"><p>San Francisco</p></a>
-                  </div>
-              </div>
-              <div class="col-md-3">
-                      <a href="#city/portland"><img src="http://david.sickmiller.com/pictures/dynimages/Columbia_River_Gorge_-_View_from_Portland_Womens_Forum_4.jpg" class="img-responsive img-rounded center-block border=0">
-                      <div class="homepage-text"><p>Portland</p></a> 
-                      </div>
-              </div>
-              <div class="col-md-3">
-                  <a href="#city/seattle"><img src="https://c1.staticflickr.com/9/8137/8714655860_4fa16bca7b_b.jpg" class="img-responsive img-rounded center-block border=0">
-                  <div class="homepage-text"><p>Seattle</p></a>
-                  </div>
-              </div>
+            <div class="col-md-3">
+              <div class="image">
+                <a class="city-font" href="#city/losangeles"><img src="https://pixabay.com/static/uploads/photo/2015/10/09/14/51/hollywood-sign-979399_960_720.jpg" class="img-responsive img-rounded center-block round-image border=0">
+                <div class="homepage-text"><p>Los Angeles</p></a>
+                </div>
+              </div>  
+            </div>
+            <div class="col-md-3">
+              <div class="image">
+                <a class="city-font" href="#city/sanfrancisco"><img src="https://pixabay.com/static/uploads/photo/2015/10/22/08/51/golden-bridge-1000909_960_720.jpg" class="img-responsive img-rounded center-block border=0">
+                <div class="homepage-text"><p>San Francisco</p></a>
+                </div>
+              </div>  
+            </div>
+            <div class="col-md-3">
+              <div class="image">
+                <a class="city-font" href="#city/portland"><img src="http://david.sickmiller.com/pictures/dynimages/Columbia_River_Gorge_-_View_from_Portland_Womens_Forum_4.jpg" class="img-responsive img-rounded center-block border=0">
+                <div class="homepage-text"><p>Portland</p></a> 
+                </div>
+              </div>  
+            </div>
+            <div class="col-md-3">
+              <div class="image">
+                <a class="city-font" href="#city/seattle"><img src="https://c1.staticflickr.com/9/8137/8714655860_4fa16bca7b_b.jpg" class="img-responsive img-rounded center-block border=0">
+                <div class="homepage-text"><p>Seattle</p></a>
+                </div>
+               </div> 
+            </div>
           </div>
         </div>
     </div>
 
     <script type="text/template" id="campsite-template">
-      <div>
-        <p><strong><%= name %></strong></p><a href="http://www.reserveamerica.com/campsiteSearch.do?contractCode=<%= contract_id %>&parkId=<%= facility_id %>" target="_blank">More info</a>
-        <button class="trail-button">See trails</button>
-        <p>(<%= location.lat.toFixed(4) %>, <%= location.lon.toFixed(4) %>)</p>
+      <div class="each-campsite">
+        <p><strong><%= name %></strong><a href="http://www.reserveamerica.com/campsiteSearch.do?contractCode=<%= contract_id %>&parkId=<%= facility_id %>" target="_blank"> More info</a></p>
+        <p>(<%= location.lat.toFixed(4) %>, <%= location.lon.toFixed(4) %>)
+          <button class="trail-button">See trails</button></p>
         <ul>
           <% _.each(topTrails, function (trail) { %>
             <li><em><%= trail.name %></em>
@@ -120,7 +128,8 @@
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
           <h2>About Outside Bounds</h2>
-          <p>This website pairs campgrounds with nearby trailheads to reduce the amount of planning needed for a weekend camping adventure. The list of campgrounds comes from ReserveAmerica, and trailhead information is from EveryTrail.</p>
+          <p>Outside Bounds pairs campgrounds with nearby trailheads to reduce the amount of planning needed for a weekend camping adventure. The list of campgrounds comes from ReserveAmerica, and trailhead information is from EveryTrail. Plans for future expansion of this website include adding more cities, and providing a search box to search by location.
+          </p>
 
           <h2>About the developer</h2>
           <p> I've been learning web development for the past few months at General Assembly, and decided to build a site about two of my passions, camping and hiking. I'm an outdoors enthusiast and wanted to make it easier for others to plan a weekend getaway without having several browser tabs open. </p>
