@@ -21,7 +21,8 @@ var CampsiteView = Backbone.View.extend({
       "properties": {
         "title": this.model.get('name'),
         "description": linkElement,
-        "marker-symbol": "campsite"
+        "marker-symbol": "campsite",
+        "marker-color": "#23527C"
       }
     }]).addTo(app.mapbox);
     this.$el.html(this.template(this.model.toJSON()));
@@ -53,14 +54,15 @@ var CampsiteView = Backbone.View.extend({
 // View for all campsites (collection)
 var CampsitesView = Backbone.View.extend({ // calling this CampsitesView to distinguish as the view for the collection
   tagName: 'ul',
-  initialize: function(){
-    this.collection;
+  initialize: function(options){
+    this.options = options;
   },
 
   // hiding other views from page
   render: function(){
     $("#city-images").hide();
     $("#about-container").hide();
+    $('#cityName').text(this.options.city);
     $('#campsite-container').empty();
     this.collection.each(function(campsite){
       var campsiteView = new CampsiteView({model: campsite});

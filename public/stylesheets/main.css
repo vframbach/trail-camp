@@ -26,9 +26,12 @@ h3.subtitle {
 
 a.city-font {
 	color: #23527c; 
-	a:hover {
-		color: none;
 }
+
+a.city-font:hover,
+a.city-font:active,
+a.city-font:visited {
+	text-decoration: none;
 }
 
 .h1 {
@@ -53,6 +56,10 @@ a.attribution {
 .jumbotron h1.page-title {
 	color: white;
 	padding-top: 200px;
+}
+
+h2#cityName {
+	margin-top: 0px;
 }
 
 #map-container {

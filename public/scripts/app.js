@@ -27,24 +27,27 @@ $(function(){
       $('#nav-container').show();
         // GET /api/campsites{lat, lon}
       var lookup = {
-        losangeles: { lat: 34.0500, lon:-118.2500 },
-        sanfrancisco: { lat: 37.7833, lon:-122.4167 },
-        portland: { lat: 45.5200, lon:-122.6819 },
-        seattle: { lat: 47.6097, lon: -122.3331 }
+        losangeles: { lat: 34.0500, lon:-118.2500, displayName: "Los Angeles" },
+        sanfrancisco: { lat: 37.7833, lon:-122.4167, displayName: "San Francisco" },
+        portland: { lat: 45.5200, lon:-122.6819, displayName: "Portland" },
+        seattle: { lat: 47.6097, lon: -122.3331, displayName: "Seattle" }
       };
-      var cityLatLon = lookup[params];
+      var cityData = lookup[params];
       if (app.mapbox) app.mapbox.remove();
       L.mapbox.accessToken = 'pk.eyJ1IjoidmZyYW1iYWNoIiwiYSI6ImNpanN4ZGs5eTBoY3B1b2x4c3BwZnczNmsifQ.bI3hNg0PQJ68O3_iA30b0A';
       app.mapbox = L.mapbox.map('map-container', 'mapbox.streets', {
         minZoom: 5,
         maxZoom: 13,
-      }).setView([cityLatLon.lat, cityLatLon.lon], 8);
+      }).setView([cityData.lat, cityData.lon], 8);
 
-      $.get('/api/campsites', cityLatLon, function(campsites) {
+      $.get('/api/campsites', cityData, function(campsites) {
         var campsiteCollection = new CampsiteCollection(campsites);
 
         // When the GET returns, then do:
-        var campsitesView = new CampsitesView({collection: campsiteCollection});
+        var campsitesView = new CampsitesView({
+          collection: campsiteCollection,
+          city: cityData.displayName
+        });
         campsitesView.render();
       });
     },
