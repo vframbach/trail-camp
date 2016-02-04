@@ -12,7 +12,7 @@ var CampsiteView = Backbone.View.extend({
   render: function() {
     var linkElement = '<a href="http://www.reserveamerica.com/campsiteSearch.do?contractCode=' + this.model.get('contract_id') + '&parkId=' + this.model.get('facility_id') + '" target="_blank">More info</a>';
     console.log(linkElement);
-    L.mapbox.featureLayer().setGeoJSON([{
+    this.campMarker = L.mapbox.featureLayer().setGeoJSON([{
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -31,6 +31,9 @@ var CampsiteView = Backbone.View.extend({
   trailButtonClick:function(e) {
     console.log(this.model.toJSON());
     var self = this;
+    this.campMarker.eachLayer(function(m) {
+      m.openPopup();
+    });
     this.model.get('topTrails').forEach(function(trail) {
       var trailLink = '<a href="http://www.everytrail.com/view_trip.php?trip_id=' + trail.trip_id + '" target="_blank">More info</a>';
       L.mapbox.featureLayer().setGeoJSON([{

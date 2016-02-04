@@ -68,8 +68,9 @@
 
     <script type="text/template" id="campsite-template">
       <div class="each-campsite">
-        <p><strong><%= name %></strong><a href="http://www.reserveamerica.com/campsiteSearch.do?contractCode=<%= contract_id %>&parkId=<%= facility_id %>" target="_blank"> More info</a></p>
-        <p><button class="trail-button">See trails</button></p>
+        <p><strong><%= name %></strong>
+        <button type="button" class="btn btn-default btn-xs trail-button">View on map</button>
+        <a href="http://www.reserveamerica.com/campsiteSearch.do?contractCode=<%= contract_id %>&parkId=<%= facility_id %>" target="_blank"> More info</a></p>
         <ul>
           <% _.each(topTrails, function (trail) { %>
             <li><em><%= trail.name %></em>
