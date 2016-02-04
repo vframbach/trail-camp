@@ -25,6 +25,7 @@ Outside Bound matches campgrounds with nearby hiking trails. Users can plan a we
 * Amazon Elasticsearch Service
 * Mapbox
 * Cheerio
+* Bootstrap
 
 ## Future plans
 * Adding more cities
