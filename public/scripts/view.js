@@ -34,6 +34,8 @@ var CampsiteView = Backbone.View.extend({
     this.campMarker.eachLayer(function(m) {
       m.openPopup();
     });
+
+    app.mapbox.setView([this.model.get('location').lat, this.model.get('location').lon], 9);
     this.model.get('topTrails').forEach(function(trail) {
       var trailLink = '<a href="http://www.everytrail.com/view_trip.php?trip_id=' + trail.trip_id + '" target="_blank">More info</a>';
       L.mapbox.featureLayer().setGeoJSON([{
