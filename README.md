@@ -13,18 +13,26 @@ Outside Bound matches campgrounds with nearby hiking trails. Users can plan a we
 * All campsites near each city are displayed on a map
 * Trails near campsites also appear on the map
 
+## Screenshots
+
+![](public/images/ob1.png)
+
+![](public/images/ob2.png)
+
 ## Technologies used
 
 * Javascript
-* jQuery
 * Backbone
 * Underscore
+* jQuery
 * Reserveamerica API
 * Everytrail API
 * Elasticsearch
 * Amazon Elasticsearch Service
 * Mapbox
 * Cheerio
+* Node
+* Express
 * Bootstrap
 
 ## Future plans
