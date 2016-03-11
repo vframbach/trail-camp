@@ -36,7 +36,7 @@ Outside Bound matches campgrounds with nearby hiking trails. Users can plan a we
 * Bootstrap
 
 ## Future plans
-* Adding more cities
+* Add more cities
 * Provide a search box to search by location
 
 ## Installation
@@ -124,6 +124,3 @@ node indexallcampgrounds.js
 
 * `npm run start`
 
-## Wireframes
-![](public/images/wireframe1.png)
-![](public/images/wireframe2.png)
